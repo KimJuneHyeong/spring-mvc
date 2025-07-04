@@ -1,9 +1,8 @@
 package com.metabus.springmvc.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
 @Controller
 
 public class HelloController {
@@ -24,5 +23,18 @@ public class HelloController {
     @ResponseBody
     public String post(){
         return "post Method 요청";
+    }
+
+    @PutMapping("api/put")
+    @ResponseBody
+    public String put() {
+        return "Put Method 요청";
+    }
+
+    @DeleteMapping("api/delete")
+    @ResponseBody
+
+    public String delete() {
+        return "Delete Method 요청";
     }
 }
