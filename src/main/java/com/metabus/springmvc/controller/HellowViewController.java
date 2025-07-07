@@ -2,10 +2,13 @@ package com.metabus.springmvc.controller;
 
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class HellowViewController {
+    private static long visitCount = 0;
+
     @GetMapping("/static-hello")
     public String hello(){
         return "hello.html";
@@ -21,5 +24,12 @@ public class HellowViewController {
         // prefix classpath: resources까지의 경로 + templates/ 까지 가지고 있음
         // suffix.html
         return "hello-template";
+    }
+
+    @GetMapping("html/dynamic")
+    public String htmlDynamic(Model model) {
+        visitCount++;
+        model.addAttribute("visits", visitCount);
+        return "Hello-dynamic";
     }
 }
