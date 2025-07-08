@@ -1,6 +1,7 @@
 package com.metabus.springmvc.controller;
 
 
+import domain.Star;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,10 +27,16 @@ public class DataRequestController {
 
     }
 
-    @PostMapping("/format/param")
+    @PostMapping("/form/param")
     @ResponseBody
     public String helloRequestParamPost(@RequestParam String name, @RequestParam int age){
-        String.format("Hello, @RequestParam으로 받은 값들 Post요청, <br> name = %s, age = %d", name, age);
+        return String.format("Hello, @RequestParam으로 받은 값들 Post요청, <br> name = %s, age = %d", name, age);
+    }
+
+    @PostMapping("/form/model")
+    @ResponseBody
+    public String helloRequestModel(@ModelAttribute Star star){
+        return String.format("Hello, @ModelAttribute로 받은 값들 Post요청, <br> name = %s, age = %d", star.getName(), star.getAge());
 
     }
 }
