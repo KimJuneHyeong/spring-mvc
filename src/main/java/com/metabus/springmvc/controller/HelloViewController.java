@@ -4,22 +4,17 @@ package com.metabus.springmvc.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+
 
 @Controller
-public class HellowViewController {
-    @GetMapping("response/json/string")
-    @ResponseBody
-        public String helloStringJson(){
-            return "{\"name\":\"Meta\",\"age\": 95}"
-
-    }
+public class HelloViewController {
     private static long visitCount = 0;
 
     @GetMapping("/static-hello")
-    public String hello(){
+    public String hello() {
         return "hello.html";
     }
+
     @GetMapping("/html/redirect")
     public String htmlRedirect() {
         return "redirect:/hello.html";
